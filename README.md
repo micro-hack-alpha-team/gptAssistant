@@ -1,103 +1,71 @@
-# [Horizon ChatGPT AI Template](https://horizon-ui.com/chatgpt-ai-template) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=Check%20Horizon%20ChatGPT%20AI%20Template,%20the%20trendiest%20open%20source%20ChatGPT%20AI%20admin%20template%20for%20%23nextjs%20and%20%23react!%0A%0Ahttps%3A//horizon-ui.com/chatgpt-ai-template/%20%20)
+# Guide de l'Assistant GPT pour les Employeurs
 
-![version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
-[![GitHub issues open](https://img.shields.io/github/issues/horizon-ui/chatgpt-ai-template.svg?maxAge=2592000)](https://github.com/horizon-ui/chatgpt-ai-template/issues?q=is%3Aopen+is%3Aissue)
+Bienvenue dans le Guide de l'Assistant GPT (Générateur de Texte Prédicteur) conçu pour vous aider à comprendre et à utiliser efficacement cette technologie pour améliorer vos processus de travail.
 
-<p>&nbsp;</p>
+## Qu'est-ce que GPT Assistant ?
 
-[<img alt="Horizon UI - Tailwind CSS React Admin dashboard template" src="https://i.ibb.co/mqnbX1Y/horizon-ai-template-presentation-image-open-source.png" />](https://horizon-ui.com/ai-template)
+GPT Assistant est un assistant virtuel alimenté par l'intelligence artificielle, développé par OpenAI. Il est conçu pour générer du texte de manière autonome en fonction des instructions et des exemples fournis par l'utilisateur. GPT Assistant est capable de comprendre et de générer du texte dans de nombreuses langues, y compris le français.
 
-<p>&nbsp;</p>
+## Comment utiliser GPT Assistant ?
 
-Get started and build your dream AI web app with Horizon AI Template, the trendiest & innovative Open-Source Free ChatGPT AI Admin Template for NextJS & React!
+L'utilisation de GPT Assistant est simple et ne nécessite aucune compétence technique avancée. Voici comment commencer :
 
----
+1. **Accéder à l'Assistant GPT** : Vous pouvez accéder à l'Assistant GPT via une interface conviviale en ligne ou via des intégrations dans des outils de productivité populaires.
 
-### Introduction
+2. **Définir vos besoins** : Avant d'interagir avec GPT Assistant, réfléchissez à ce que vous voulez accomplir. Que ce soit la rédaction de courriels, la création de rapports, la génération d'idées, ou toute autre tâche nécessitant de la rédaction de texte, GPT Assistant peut vous aider.
 
-Horizon ChatGPT AI Template is the world's best open source OpenAI ChatGPT AI Template made with React, NextJS and Chakra UI! Start creating outstanding Chat AI SaaS Apps faster.
+3. **Donner des instructions claires** : Pour que GPT Assistant puisse vous aider efficacement, donnez-lui des instructions claires et des exemples pertinents. Plus vos instructions sont précises, meilleurs seront les résultats.
 
-It comes with over 30+ dark/light frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining.
+4. **Interagir avec GPT Assistant** : Une fois que vous avez défini vos besoins et vos instructions, vous pouvez commencer à interagir avec GPT Assistant en lui posant des questions, en lui fournissant des exemples ou en lui demandant de générer du texte selon vos spécifications.
 
-### Documentation
+5. **Réviser et Affiner** : Après avoir reçu la réponse de GPT Assistant, prenez le temps de la réviser et de l'affiner si nécessaire. Vous pouvez également fournir des retours à GPT Assistant pour améliorer les résultats futurs.
 
-Each element is well presented in a very complex documentation. You can read more about the <a href="https://horizon-ui.com/docs-ai-template/docs/introduction?ref=readme-horizon-ai-template-free" target="_blank">documentation here.</a>
+## Pourquoi utiliser GPT Assistant ?
 
-### Quick Start
+- **Gain de temps** : GPT Assistant peut vous aider à rédiger du contenu rapidement, ce qui vous permet de gagner du temps dans vos tâches quotidiennes.
 
-Install Horizon ChatGPT AI Template by running either of the following:
+- **Qualité du contenu** : Bien qu'il soit automatique, GPT Assistant est capable de générer un contenu de haute qualité en fonction des instructions fournies.
 
-- Install NodeJS LTS from [NodeJs Official Page](https://nodejs.org/en/?ref=horizon-documentation) (NOTE: Product only works with LTS version)
+- **Polyvalence** : Que ce soit pour rédiger des e-mails, des rapports, des articles de blog, des descriptions de produits, ou d'autres types de contenu, GPT Assistant peut être utilisé dans de nombreuses situations professionnelles.
 
-Clone the repository with the following command:
+## Besoin d'aide ?
 
-```bash
-git clone https://github.com/horizon-ui/chatgpt-ai-template.git
-```
-
-Run in the terminal this command:
-
-```bash
-npm install
-```
-
-Then run this command to start your local server
-
-```bash
-npm run dev
-```
-
-### Your API Key is not working?
-
-- Make sure you have an [OpenAI account](https://platform.openai.com/account) and a valid API key to use ChatGPT. We don't sell API keys.
-- Make sure you have your billing info added in [OpenAI Billing page](https://platform.openai.com/account/billing/overview). Without billing info, your API key will not work.
-- The app will connect to the OpenAI API server to check if your API Key is working properly. 
-
-### ATTENTION: The model: `GPT-4` does not work yet. 
-If you are trying to use GPT-4, model it will not work if you don't have access from OpenAI.
-Note that even if you have ChatGPT Plus, you still need to request access to the GPT-4 API in order to use it with your API Key.
-This is OpenAI's restriction and we can't do anything about it. You can join the waitlist [here](https://openai.com/waitlist/gpt-4-api) .
-
-
-### Example Page
-
-If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example page. You will be able to quickly set up the basic structure for your web project.
-
-View <a href="https://horizon-ui.com/chatgpt-ai-template/?ref=readme-horizon-ai-template-free" target="_blank">example pages here.</a>
-
-### Versions
-
-| Free Version                                                                                                                                                                                   | PRO Version                                                                                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Horizon ChatGPT AI Template](https://i.ibb.co/Qmym1qt/horizon-ai-template-presentation-image-open-source.png)](https://github.com/horizon-ui/chatgpt-ai-template) | [![Horizon AI Template PRO](https://i.ibb.co/ChL2fvf/horizon-ai-template-presentation-image.png)](https://www.horizon-ui.com/ai-template?ref=readme-horizon-ai-template-free) |
-
-### Figma Version
-
-Horizon AI Template is available in Figma format as well! [Check it out here](https://www.figma.com/community/file/1253038328954459768)! 🎨
-
-### Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the Horizon UI. Here are
-some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Horizon AI Template.
-   Check the CHANGELOG from your dashboard on our
-   [CHANGE LOG File](https://github.com/horizon-ui/chatgpt-ai-template/blob/main/CHANGELOG.md?ref=readme-horizon-ai-template-free).
-2. Providing us reproducible steps for the issue will shorten the time it takes
-   for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you
-   encountered the issue might help.
+Si vous avez des questions sur l'utilisation de GPT Assistant ou si vous avez besoin d'aide pour intégrer cette technologie dans votre flux de travail, n'hésitez pas à contacter notre équipe d'assistance. Nous sommes là pour vous aider à tirer le meilleur parti de GPT Assistant dans votre entreprise.
 
 ---
 
-### Community
+*Nous espérons que ce guide vous aidera à comprendre et à utiliser efficacement GPT Assistant dans votre entreprise. Si vous avez des questions ou des commentaires, n'hésitez pas à nous contacter.*
 
-Connect with the community! Feel free to ask questions, report issues, and meet new people that already use Horizon AI Template!
 
-💬 [Join the #HorizonUI Discord Community!](https://discord.gg/f6tEKFBd4m)
 
-### Copyright and license
 
-⭐️ [Copyright 2023 Horizon UI ](https://www.horizon-ui.com/?ref=readme-horizon-ai-template-free)
+## Authors
 
-📄 [Horizon UI License](https://horizon-ui.notion.site/End-User-License-Agreement-8fb09441ea8c4c08b60c37996195a6d5)
+- [@lahcenbcf](https://www.github.com/lahcenbcf)
+
+
+## 🚀 About Me Hassane BENCHAREF
+I'm a full stack web developer...
+
+
+## 🔗 Links
+[![linkedin](https://www.linkedin.com/in/hassane-bencharef-2b2667248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B98SqTONmQne4K7jT%2BPclpg%3D%3D)](https://www.linkedin.com/)
+
+
+
+## 🛠 Skills
+Javascript, HTML, CSS...
+MongoDB,ExpressJS
+NodeJs
+Redux
+Next js 
+LangChain(AI)
+Gemini(AI)
+Zustand
+Talwind css
+
+## Installation
+
+clone the repo
+ npm run dev
+

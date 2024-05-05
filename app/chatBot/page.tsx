@@ -1,27 +1,26 @@
 'use client';
 /*eslint-disable*/
-
-import Link from '@/components/link/Link';
 import MessageBoxChat from '@/components/MessageBox';
-import { ChatBody, OpenAIModel } from '@/types/types';
 import {
   Accordion,
   AccordionButton,
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Box,
   Button,
   Flex,
   Icon,
   Img,
   Input,
+  MenuItem,
+  Menu,
+  MenuList,
   Text,
   useColorModeValue,
+  MenuButton,
 } from '@chakra-ui/react';
-import { dummyFAQ } from '@/lib/database';
 import { useEffect, useState } from 'react';
-import { MdAutoAwesome, MdBolt, MdEdit, MdPerson } from 'react-icons/md';
+import { MdAutoAwesome } from 'react-icons/md';
 import Bg from '../../public/img/chat/bg-image.png';
 
 interface oo {
@@ -34,19 +33,7 @@ export default function Chat() {
   // const [apiKey, setApiKey] = useState<string>(apiKeyApp);
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.200');
   const inputColor = useColorModeValue('navy.700', 'white');
-  const iconColor = useColorModeValue('brand.500', 'white');
-  const bgIcon = useColorModeValue(
-    'linear-gradient(180deg, #FBFBFF 0%, #CACAFF 100%)',
-    'whiteAlpha.200',
-  );
-  const brandColor = useColorModeValue('brand.500', 'white');
-  const buttonBg = useColorModeValue('white', 'whiteAlpha.100');
   const gray = useColorModeValue('gray.500', 'white');
-  const buttonShadow = useColorModeValue(
-    '14px 27px 45px rgba(112, 144, 176, 0.2)',
-    'none',
-  );
-  const textColor = useColorModeValue('navy.700', 'white');
   const placeholderColor = useColorModeValue(
     { color: 'gray.500' },
     { color: 'whiteAlpha.600' },
@@ -57,30 +44,35 @@ export default function Chat() {
     setMessage(e.target.value);
   };
 
-  const [objects, setObjects] = useState(dummyFAQ);
-  /* useEffect(() => {
-    fetch('http://localhost:3000/api/chatAPI')
+  const [objects, setObjects] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3000/api/chatBot')
       .then((res) => res.json())
       .then((data) => {
-        setObjects(data);
+        setObjects(data.pAQ);
       });
-  }, []);*/
+  }, []);
   const [output, setOutput] = useState<oo>(null!);
   const [history, setHistory] = useState<oo[]>([]);
   const noResponse = {
     question: 'question ouvert',
     answer: 'je suis un bot et je peux pas vous aider maintenant ',
   };
+  console.log(objects);
   const submit = () => {
     try {
+      console.log(history);
       if (output) setHistory(history);
       const answers = objects.filter((o: oo) => o.question.includes(message));
-      if (answers) {
+      console.log(answers);
+      if (answers.length && !history.includes(answers[0])) {
         setOutput(answers[0]);
         history.push(answers[0]);
         setHistory(history);
       } else {
         setOutput(noResponse);
+        history.push(noResponse);
+        setHistory(history);
       }
     } catch (error: any) {
       console.log(error.message);
@@ -131,11 +123,6 @@ export default function Chat() {
                   _hover={{ border: '0px solid', bg: 'none' }}
                   _focus={{ border: '0px solid', bg: 'none' }}
                 >
-                  <Box flex="1" textAlign="left">
-                    <Text color={gray} fontWeight="500" fontSize="sm">
-                      No plugins added
-                    </Text>
-                  </Box>
                   <AccordionIcon color={gray} />
                 </AccordionButton>
                 <AccordionPanel mx="auto" w="max-content" p="0px 0px 10px 0px">
@@ -206,6 +193,7 @@ export default function Chat() {
               color={inputColor}
               _placeholder={placeholderColor}
               placeholder="Type your message here..."
+              value={message}
               onChange={handleChange}
             />
             <Button
@@ -233,26 +221,35 @@ export default function Chat() {
           </Flex>
         </Flex>
       </Flex>
-      <QuestionBar />
+      <QuestionBar faqs={objects} setSelectedMessage={setMessage} />
     </div>
   );
 }
 
-function QuestionBar() {
-  const [copiedText, setCopiedText] = useState('');
+type faq = {
+  question: string;
+  answer: string;
+};
+type faqProps = {
+  setSelectedMessage: any;
+  faqs: faq[];
+};
+
+function QuestionBar(props: faqProps) {
   return (
     <div className="glass-container">
-      <div className="content">
-        {dummyFAQ.map((f, index) => (
-          <p
-            onClick={() => {
-              setCopiedText(f.question);
-            }}
-          >
-            {f.question}
-          </p>
-        ))}
-      </div>
+      <Menu>
+        <MenuButton>seléctionner votre question</MenuButton>
+        <div className="content">
+          <MenuList>
+            {props.faqs.map((faq) => (
+              <MenuItem onClick={() => props.setSelectedMessage(faq.question)}>
+                {faq.question}
+              </MenuItem>
+            ))}
+          </MenuList>
+        </div>
+      </Menu>
     </div>
   );
 }

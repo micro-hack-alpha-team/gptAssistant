@@ -32,7 +32,6 @@ export const convertTextToArrayOfObjects=(text:String)=>{
         questionsAndAnswers.push({ question: currentQuestion.trim(), answer: currentAnswer.trim() });
     }
 
-    console.log(questionsAndAnswers)
     return questionsAndAnswers;
 }
 

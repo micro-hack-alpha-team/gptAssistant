@@ -64,12 +64,11 @@ opacity: 1;
 }
 
 .glass-container {
-    display: flex;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    display: flex; /* Semi-transparent white background */
     border-radius: 10px; /* Rounded corners */
     padding: 20px;
-    width: 300px;
-    backdrop-filter: blur(10px); /* Apply a blur effect */
+    width: 500px;
+    /* Apply a blur effect */
     position: fixed;
     left: 10px;
     height: 50vh;

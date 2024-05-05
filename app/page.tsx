@@ -3,21 +3,24 @@ import VideoThumb from '../public/hero-image-01.jpg';
 import ModalVideo from '@/components/modal-video';
 import { FilePond } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
+import { useRef } from 'react';
+import Link from 'next/link';
+
 export default function Hero() {
-/*
-  const handleFileUpload = async (event: any) => {
+  /*const handleFileUpload = async (event: any) => {
     const { files } = event.target;
-    const formData = new FormData()
-    formData.append("pdf",files[0])
-    const res = await fetch('/api/upload',{
-      method:"POST",
-      headers:{
-        "Content-Type":`multipart/form-data`
+    const formData = new FormData();
+    formData.append('pdf', files[0]);
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': `multipart/form-data`,
       },
-      body: formData
-    })
-    console.log(res)
+      body: formData,
+    });
+    console.log(res);
   };*/
+ 
   return (
     <section className="relative">
       {/* Illustration behind hero content */}
@@ -81,29 +84,22 @@ export default function Hero() {
                 data-aos="zoom-y-out"
                 data-aos-delay="300"
               >
-                <div>
-                  <span
-                    className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 px-4 py-4 rounded-md"
-                   
+                <div className='flex flex-col'>
+                  <div
+                    className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 px-4 py-4 rounded-md relative overflow-hidden h-16"
+                    
                   >
                     Essayer gratuitement
                     <FilePond
-                    server={{
-                      process: '/api/upload',
-                      fetch: null,
-                      revert: null,
-                    }}
+                     className={" opacity-0 absolute top-0 h-full left-0 w-full"}
+                      server={{
+                        process: '/api/upload',
+                      }}
                     />
-                  </span>
+                  </div>
+                  <Link href={"/chatBot"} className='py-2 px-4 bg-purple-600 text-white my-4 shadow-md rounded-md'>try chat Assistant</Link>
                 </div>
-                <div>
-                  <a
-                    className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4 p-4 rounded-md"
-                    href="#0"
-                  >
-                    Plus
-                  </a>
-                </div>
+                <div></div>
               </div>
             </div>
           </div>

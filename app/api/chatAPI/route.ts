@@ -1,8 +1,10 @@
 import { convertTextToArrayOfObjects } from '@/lib';
-import {Ged, QuestionAnswer, connect} from '@/lib/database'
-import {GoogleGenerativeAI} from "@google/generative-ai"
+import QuestionAnswer from '@/lib/models';
+import Ged from '@/lib/GedModal';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { NextResponse } from 'next/server';
 
-const example =`Manuel d'Utilisation - Création, Validation et Transformation de Fichiers
+/*const example =`Manuel d'Utilisation - Création, Validation et Transformation de Fichiers
         Introduction
         Ce manuel d'utilisation fournit des instructions détaillées pour effectuer les tâches de création de fichier, de validation et de transformation à l'aide de notre logiciel. Suivez ces étapes pour tirer le meilleur parti de notre système et maximiser votre efficacité dans la gestion des fichiers.
         
@@ -59,34 +61,35 @@ const example =`Manuel d'Utilisation - Création, Validation et Transformation d
         
         Une fois la transformation terminée, téléchargez le fichier transformé sur votre appareil.
         `
+*/
 
-    
 const genAI = new GoogleGenerativeAI(process.env.API_KEY!);
-const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-export async function POST(req: Request): Promise<Response> {
-  try{
-  await connect()
-      const {documentation} = await req.json()
-      const promptToAi = `Imaginez que vous êtes un instructeur chargé de guider les utilisateurs à travers un logiciel de gestion électronique des documents. Utilisez le manuel d'utilisation pour générer autant de questions que maximum, accompagnées de réponses détaillées, afin d'expliquer comment utiliser efficacement le logiciel. la forme de question/réponse (Q:[contenu]
-        R:[contenu] et catégoriser les questions selon le context`
-    
-      const result = await model.generateContent(`
+const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+
+export async function POST(req: Request) {
+  const { documentation } = await req.json();
+  const promptToAi = `Imaginez que vous êtes un instructeur chargé de guider les utilisateurs à travers un logiciel de gestion électronique des documents. Utilisez le manuel d'utilisation pour générer autant de questions que maximum, accompagnées de réponses détaillées, afin d'expliquer comment utiliser efficacement le logiciel. la forme de question/réponse (Q:[contenu]
+        R:[contenu] et chaque  question doit commencer avec Q : [contenu] et catégoriser les questions selon le context sans "*" 
+        voici un example :
+        Q : Comment créer une sauvegarde des documents ?
+        R :  Allez dans le menu "Administration" et sélectionnez "Paramètres de sauvegarde". Suivez les instructions pour programmer des sauvegardes automatiques ou manuelles
+        `;
+
+  const result = await model.generateContent(`
         ${promptToAi} et voici le manual d'utilisation suivant : ${documentation}
       `);
-      const response = await result.response;
-      const text = response.text();
-      const objects = convertTextToArrayOfObjects(text);
-        /*Ged.create({}).then(gedCreated => {
-          objects.map(async obj => await QuestionAnswer.create({
-              ...obj,
-              gedId:gedCreated._id
-          }))
-        })*/
-        console.log(objects)
-        return new Response(JSON.stringify(objects))
-      } catch (error) {
-        console.error(error);
-        return new Response('Error', { status: 500 });
-      }
-    }
-    
+  const response = await result.response;
+  const text = response.text();
+  console.log(text)
+  const objects = convertTextToArrayOfObjects(text);
+ 
+  Ged.create({}).then((gedCreated) => {
+    objects.map(
+      async (obj) =>
+        await QuestionAnswer.create({
+          ...obj,
+          gedId: gedCreated._id,
+        }),
+    );
+  });
+}
